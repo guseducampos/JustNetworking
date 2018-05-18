@@ -12,7 +12,7 @@ import Foundation
 public typealias RequestParser<T> = (Data) throws -> T
 
 /// Function for mutate the URLRequest.
-public typealias RequestBuilder = (inout URLRequest) -> Void
+public typealias RequestBuilder = (URL) -> URLRequest
 
 /// This protocol is for Abstract the configuration of a Request
 public protocol Request {
@@ -46,8 +46,6 @@ public struct RequestFactory {
     }
     
     public func buildRequest() -> URLRequest {
-        var request = URLRequest(url: url)
-        requestBuilder(&request)
-        return request
+        return requestBuilder(url)
     }
 }
