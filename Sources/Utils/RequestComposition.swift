@@ -8,19 +8,19 @@
 
 import Foundation
 
-/// Function that will perform a side effect for URLRequest
-public typealias RequestModifier = (inout URLRequest) -> Void
+/// Pure Function that will return a new URLRequest
+public typealias RequestModifier = (URLRequest) -> URLRequest
 
-/// Compose multiple function that will perform a side effect for
-/// the URLRequest created based on the URL passed.
+/// Compose multiple function that will return a new
+/// URLRequest created based on the URL passed.
 /// - Parameter requestBuilder: Variadiac argument that accepts multiple functions
 /// - Returns: request builder that could be used as parameter for the RequestFactory
-public func compose(_ requestBuilder: RequestModifier...) -> RequestBuilder {
+public func compose(_ builder: @escaping RequestBuilder,  with requestModifier: RequestModifier...) -> RequestBuilder {
     return { url in
-        return requestBuilder.reduce(into: { (request: URLRequest) -> URLRequest in
+        return requestModifier.reduce({ (request: URLRequest) -> URLRequest in
             return request
-        }(URLRequest(url: url)), { (result, modifier)  in
-            modifier(&result)
+        }(builder(url)), { (result, modifier)  in
+           return modifier(result)
         })
     }
 }

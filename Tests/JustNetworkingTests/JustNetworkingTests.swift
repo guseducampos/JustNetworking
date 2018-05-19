@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-import JustNetworking
+@testable import JustNetworking
 
 class JustNetworkingTests: XCTestCase {
     func testExample() {
@@ -19,5 +19,14 @@ class JustNetworkingTests: XCTestCase {
     
     static var allTests = [
         ("testExample", testExample),
+         ("testAuthorizationRequest", testAuthorizationRequest),
     ]
+    
+    
+    func testAuthorizationRequest() {
+        
+    }
 }
+
+
+
