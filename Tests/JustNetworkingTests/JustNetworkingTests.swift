@@ -11,20 +11,25 @@ import XCTest
 @testable import JustNetworking
 
 class JustNetworkingTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //// XCTAssertEqual(JustNetworking().text, "Hello, World!")
-    }
     
+
     static var allTests = [
-        ("testExample", testExample),
          ("testAuthorizationRequest", testAuthorizationRequest),
     ]
-    
+ 
     
     func testAuthorizationRequest() {
         
+        GlobalConfiguration.setCurrentURL(URL(string:"https://www.myApi.com")!)
+        
+        let request = buildRequest(type: User.self,
+                                   router: UserRouter.user(id: "1"),
+                                   parameters: ["year":"2015"],
+                                   requestBuilder: compose(addSecurity("Bearer 23423")))
+        
+        let urlRequest = request.urlRequest
+        assert(urlRequest.allHTTPHeaderFields ==  ["Authorization": "Bearer 23423"], "headers was not added" )
+        assert(urlRequest.url?.absoluteString == "https://www.myApi.com/1?year=2015", "Parameters was not added")
     }
 }
 
