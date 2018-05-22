@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct Route {
      let path: String
      let method: HTTPMethod
@@ -23,7 +22,7 @@ public struct Route {
 /// By default use the URL set on the global configuration and append the path
 public protocol Router {
     
-    /// This is the path of the url to append to the baseURL
+    /// This holds the path and method for the url and url request
     var route: Route {get}
     
     

@@ -10,11 +10,11 @@ import Foundation
 
 public struct BaseRequest<Response>: Request {
     
-    public  let responseQueue: DispatchQueue
+    public let responseQueue: DispatchQueue
     
-    public  let requestParser: RequestParser<Response>
+    public let requestParser: RequestParser<Response>
     
-    public  let requestFactory: RequestFactory
+    public let requestFactory: RequestFactory
     
    public init(responseQueue: DispatchQueue = .global(qos: .default),
          requestFactory: RequestFactory,
@@ -26,7 +26,6 @@ public struct BaseRequest<Response>: Request {
 }
 
 public extension BaseRequest where Response: Decodable {
-    
     
     init(responseQueue: DispatchQueue = .global(qos: .default),
          requestFactory: RequestFactory,
