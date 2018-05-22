@@ -8,24 +8,6 @@
 
 import Foundation
 
-/// This class saves all the possible URL by enviroment into a dictionary
-@dynamicMemberLookup
-public final class URLStorage {
-    
-    static private let shared = URLStorage()
-    
-    private var url: [String: URL] = [:]
-    
-    subscript(dynamicMember member: String) -> URL? {
-        set {
-            url[member] = newValue
-            
-        } get {
-            return url[member]
-        }
-    }
-}
-
 /// This class save the global URL to use
 public final class GlobalConfiguration {
     
@@ -37,8 +19,4 @@ public final class GlobalConfiguration {
         GlobalConfiguration.shared.url = url
     }
 }
-
-
-
-
 
