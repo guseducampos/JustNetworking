@@ -8,18 +8,15 @@
 
 import Foundation
 
-/// Pure Function that will return a new URLRequest
-public typealias RequestModifier = (URLRequest) -> URLRequest
 
 /// Compose multiple function that will return a new
 /// URLRequest created based on the URL passed.
-/// - Parameter requestBuilder: Variadiac argument that accepts multiple functions
-/// - Returns: request builder that could be used as parameter for the RequestFactory
-public func compose(_ builder: @escaping RequestBuilder,  with requestModifier: RequestModifier...) -> RequestBuilder {
-    return { url in
-        return requestModifier.reduce({ (request: URLRequest) -> URLRequest in
+/// - Parameter builder: Variadiac argument that accepts multiple functions
+public func compose(_ builder: RequestBuilder...) -> RequestBuilder {
+    return { request in
+        return builder.reduce({ (request: URLRequest) -> URLRequest in
             return request
-        }(builder(url)), { (result, modifier)  in
+        }(request), { (result, modifier)  in
            return modifier(result)
         })
     }

@@ -16,7 +16,7 @@ public struct BaseRequest<Response>: Request {
     
     public  let requestFactory: RequestFactory
     
-    init(responseQueue: DispatchQueue = .global(qos: .default),
+   public init(responseQueue: DispatchQueue = .global(qos: .default),
          requestFactory: RequestFactory,
          requestParser: @escaping RequestParser<Response>) {
         self.responseQueue = responseQueue
@@ -25,7 +25,7 @@ public struct BaseRequest<Response>: Request {
     }
 }
 
-extension BaseRequest where Response: Decodable {
+public extension BaseRequest where Response: Decodable {
     
     
     init(responseQueue: DispatchQueue = .global(qos: .default),
