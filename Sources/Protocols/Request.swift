@@ -12,7 +12,7 @@ import Foundation
 public typealias RequestParser<T> = (Data) throws -> T
 
 /// Function for mutate the URLRequest.
-public typealias RequestBuilder = (URL) -> URLRequest
+public typealias RequestBuilder = (URLRequest) -> URLRequest
 
 /// This protocol is for Abstract the configuration of a Request
 public protocol Request {
@@ -30,22 +30,9 @@ public protocol Request {
     var requestFactory: RequestFactory {get}
 }
 
-/// This struct wraps the URL and the request builder function that will create
-/// the URLRequest for send to the Requester
-public struct RequestFactory {
+public extension Request {
     
-    /// The full URL to will be added to the URLRequest
-    private let url: URL
-
-    /// Holds the function for build a URLRequest
-    private let requestBuilder: RequestBuilder
-    
-    public init (url: Router, requestBuilder: @escaping RequestBuilder) {
-        self.url = url.completeURL
-        self.requestBuilder = requestBuilder
-    }
-    
-    public func buildRequest() -> URLRequest {
-        return requestBuilder(url)
+    public var urlRequest: URLRequest {
+        return requestFactory.request
     }
 }

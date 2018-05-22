@@ -8,12 +8,23 @@
 
 import Foundation
 
+
+public struct Route {
+     let path: String
+     let method: HTTPMethod
+    
+   public init(path: String, method: HTTPMethod) {
+        self.path = path
+        self.method = method
+    }
+}
+
 /// This a protocol is used for create an abstraction between every posible chunk of routes that could exist
 /// By default use the URL set on the global configuration and append the path
 public protocol Router {
     
     /// This is the path of the url to append to the baseURL
-    var path: String {get}
+    var route: Route {get}
     
     
     /// By default is set by the global URL configured
@@ -34,6 +45,10 @@ public extension Router {
     }
     
     var completeURL: URL {
-        return baseURL.appendingPathComponent(path)
+        return baseURL.appendingPathComponent(route.path)
+    }
+    
+    var method: HTTPMethod {
+        return route.method
     }
 }
