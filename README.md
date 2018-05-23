@@ -165,7 +165,7 @@ Installation
 
 ## CocoaPods
 
-Just add the following line to the podfile
+Just add the following line into the podfile
 ```
 pod `JustNetworking`, `1.0`
 ```
