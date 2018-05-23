@@ -20,13 +20,13 @@ This protocol is used for get the full URL and the HTTPMethod for the request.  
 
 you must set the global URL first:
 
-```
+```swift
 GlobalConfiguration.setCurrentURL(URL(string:"https://www.myApi.com")!)
 ```
 
 Implementing Router Protocol: 
 
-```
+```swift
 enum UserRouter: Router {
     case user(id: String)
 
@@ -40,7 +40,7 @@ enum UserRouter: Router {
 ```
 if you don't want use the global url you could change implementing  `baseURL` property
 
-```
+```swift
 enum UserRouter: Router {
     case user(id: String)
 
@@ -78,7 +78,7 @@ property the type `RequestFactory` this is a struct that is initialized with a `
 
 There is a default implementation for this protocol provided by the library :
 
-```
+```swift
 public struct BaseRequest<Response>: Request {
 
 public let responseQueue: DispatchQueue
@@ -98,7 +98,8 @@ public init(responseQueue: DispatchQueue = .global(qos: .default),
 ```
 That has its custom extension when the response type is Decodable
 
-``` extension BaseRequest where Response: Decodable {
+``` swift
+extension BaseRequest where Response: Decodable {
 
     init(responseQueue: DispatchQueue = .global(qos: .default),
         requestFactory: RequestFactory,
@@ -120,9 +121,9 @@ The library provide a free function `compose` that takes a varadic parameter of 
 
 example:
 
-```
-RequestFactory(router: UserRouter.user(id: "12"), requestBuilder: compose(addURLParams(["years": "2015"]), 
-addHeaders(["Authorization":"Bearer...."])))
+```swift
+let requestBuilder = compose(addURLParams(["years": "2015"]), addHeaders(["Authorization":"Bearer...."]))
+RequestFactory(router: UserRouter.user(id: "12"), requestBuilder: requestBuilder)
 ```
 
 Requester
@@ -132,7 +133,7 @@ This protocol is for abstract the network client, just has a function that accep
 
 Example using Alamofire:
 
-```        
+```swift      
 public func execute<T: Request>(_ request: T, response: @escaping Response<T.APIResponse> )  {
 
     let urlRequest = request.urlRequest
