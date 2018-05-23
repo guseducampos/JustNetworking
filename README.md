@@ -147,7 +147,7 @@ public func execute<T: Request>(_ request: T, response: @escaping Response<T.API
                     response(.failure(error))
                     }
                 case .failure(let error):
-                    response(.failure(APIError.undefined))
+                    response(.failure(error))
                     }
                 }
             }

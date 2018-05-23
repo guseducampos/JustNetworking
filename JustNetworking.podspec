@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "JustNetworking"
   s.version      = "1.0"
-  s.summary      = ""
+  s.summary      = "A small architecture library for simplify the networking layer"
   s.description  = <<-DESC
     Your description here.
   DESC
-  s.homepage     = ""
+  s.homepage     = "https://github.com/guseducampos/JustNetworking"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Gustavo Campos" => "guseducampos@gmail.com" }
   s.social_media_url   = ""
