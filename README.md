@@ -154,12 +154,6 @@ public func execute<T: Request>(_ request: T, response: @escaping Response<T.API
 }
 ```
 
-License
-======
-
-JustNetworking is released under the MIT license. See LICENSE for details.
-
-
 Installation
 ======
 
@@ -169,6 +163,12 @@ Just add the following line into the podfile
 ```
 pod `JustNetworking`, `1.0`
 ```
+
+License
+======
+
+JustNetworking is released under the MIT license. See LICENSE for details.
+
 
 
 
