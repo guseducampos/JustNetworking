@@ -15,7 +15,20 @@
 		4A54773320AF3913009222E9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54773220AF3913009222E9 /* Request.swift */; };
 		4A54773620AF3B65009222E9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54773520AF3B65009222E9 /* Result.swift */; };
 		4A54773820AF514B009222E9 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54773720AF514B009222E9 /* Requester.swift */; };
+		4AD0AA2120B61692006909FD /* JustNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* JustNetworking.framework */; };
+		4AD0AA2720B61697006909FD /* HelperForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A17338A20AF93A10085F018 /* HelperForTest.swift */; };
+		4AD0AA2820B6169A006909FD /* JustNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* JustNetworkingTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AD0AA2220B61692006909FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D6D9731BEFF229002C0205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52D6D97B1BEFF229002C0205;
+			remoteInfo = JustNetworking;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4A0F19FB20AE2B6900B1883D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -27,13 +40,23 @@
 		4A54773220AF3913009222E9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		4A54773520AF3B65009222E9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4A54773720AF514B009222E9 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		4AD0AA1C20B61691006909FD /* JustNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AD0AA2020B61692006909FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* JustNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JustNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8933C7891EB5B82A000D00A4 /* JustNetworkingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustNetworkingTests.swift; sourceTree = "<group>"; };
+		8933C7891EB5B82A000D00A4 /* JustNetworkingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JustNetworkingTests.swift; path = ../Tests/JustNetworkingTests/JustNetworkingTests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* JustNetworking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JustNetworking.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* JustNetworkingTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JustNetworkingTests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4AD0AA1920B61691006909FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AD0AA2120B61692006909FD /* JustNetworking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52D6D9781BEFF229002C0205 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,12 +87,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		4AD0AA1D20B61692006909FD /* JustNetworkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				8933C7891EB5B82A000D00A4 /* JustNetworkingTests.swift */,
+				4A17338A20AF93A10085F018 /* HelperForTest.swift */,
+				4AD0AA2020B61692006909FD /* Info.plist */,
+			);
+			path = JustNetworkingTests;
+			sourceTree = "<group>";
+		};
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
 				8933C7811EB5B7E0000D00A4 /* Sources */,
-				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
+				4AD0AA1D20B61692006909FD /* JustNetworkingTests */,
 				52D6D97D1BEFF229002C0205 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				52D6D97C1BEFF229002C0205 /* JustNetworking.framework */,
+				4AD0AA1C20B61691006909FD /* JustNetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,16 +134,6 @@
 				4A4D7B0920B31CD500202E34 /* RequestFactory.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		8933C7831EB5B7EB000D00A4 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				8933C7891EB5B82A000D00A4 /* JustNetworkingTests.swift */,
-				4A17338A20AF93A10085F018 /* HelperForTest.swift */,
-			);
-			name = Tests;
-			path = Tests/JustNetworkingTests;
 			sourceTree = "<group>";
 		};
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
@@ -141,6 +165,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4AD0AA1B20B61691006909FD /* JustNetworkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AD0AA2620B61692006909FD /* Build configuration list for PBXNativeTarget "JustNetworkingTests" */;
+			buildPhases = (
+				4AD0AA1820B61691006909FD /* Sources */,
+				4AD0AA1920B61691006909FD /* Frameworks */,
+				4AD0AA1A20B61691006909FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AD0AA2320B61692006909FD /* PBXTargetDependency */,
+			);
+			name = JustNetworkingTests;
+			productName = JustNetworkingTests;
+			productReference = 4AD0AA1C20B61691006909FD /* JustNetworkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		52D6D97B1BEFF229002C0205 /* JustNetworking */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "JustNetworking" */;
@@ -165,10 +207,14 @@
 		52D6D9731BEFF229002C0205 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JustNetworking;
 				TargetAttributes = {
+					4AD0AA1B20B61691006909FD = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 					52D6D97B1BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
@@ -188,11 +234,19 @@
 			projectRoot = "";
 			targets = (
 				52D6D97B1BEFF229002C0205 /* JustNetworking */,
+				4AD0AA1B20B61691006909FD /* JustNetworkingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4AD0AA1A20B61691006909FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52D6D97A1BEFF229002C0205 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,6 +257,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4AD0AA1820B61691006909FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AD0AA2820B6169A006909FD /* JustNetworkingTests.swift in Sources */,
+				4AD0AA2720B61697006909FD /* HelperForTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52D6D9771BEFF229002C0205 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,7 +283,65 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4AD0AA2320B61692006909FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52D6D97B1BEFF229002C0205 /* JustNetworking */;
+			targetProxy = 4AD0AA2220B61692006909FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4AD0AA2420B61692006909FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JustNetworkingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ApplaudoStudios.JustNetworkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AD0AA2520B61692006909FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JustNetworkingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ApplaudoStudios.JustNetworkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		52D6D98E1BEFF229002C0205 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +497,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4AD0AA2620B61692006909FD /* Build configuration list for PBXNativeTarget "JustNetworkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AD0AA2420B61692006909FD /* Debug */,
+				4AD0AA2520B61692006909FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "JustNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
