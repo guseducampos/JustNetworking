@@ -1,6 +1,6 @@
 # JustNetworking
 
-It is a tiny architecture library for simplify the networking layer.  The main of the library is provide an simple abstraction for networking layer, keeping easy to use and test.
+It is a tiny architecture library for simplify the networking layer.  The main of the library is provide a simple abstraction for networking layer, keeping easy to use and test.
 
 This library does not provide any custom implementation for URLDataTask or use another library for make api calls, you should use your own implementation or use a library such as Alamofire.
 
@@ -158,6 +158,20 @@ License
 ======
 
 JustNetworking is released under the MIT license. See LICENSE for details.
+
+
+Installation
+======
+
+## CocoaPods
+
+Just add the following line to the podfile
+```
+pod `JustNetworking`, `1.0`
+```
+
+
+
 
 
 
