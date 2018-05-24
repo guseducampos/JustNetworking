@@ -15,7 +15,7 @@ public final class GlobalConfiguration {
     
     public static let shared =  GlobalConfiguration()
     
-    static func setCurrentURL(_ url: URL) {
+    public static func setCurrentURL(_ url: URL) {
         GlobalConfiguration.shared.url = url
     }
 }
