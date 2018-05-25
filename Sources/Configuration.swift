@@ -11,7 +11,7 @@ import Foundation
 /// This class save the global URL to use
 public final class GlobalConfiguration {
     
-    private(set) var url: URL?
+    public private(set) var url: URL?
     
     public static let shared =  GlobalConfiguration()
     

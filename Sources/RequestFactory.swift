@@ -33,7 +33,7 @@ public struct RequestFactory {
     private let requestBuilder: RequestBuilder
     
    public init(router: Router,
-               requestBuilder: @escaping RequestBuilder) {
+               requestBuilder: @escaping RequestBuilder = identity) {
         self.router = router
         self.requestBuilder = requestBuilder
     }

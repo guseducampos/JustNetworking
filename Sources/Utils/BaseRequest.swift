@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BaseRequest<Response>: Request {
+public struct BaseRequest<Response>: APIRequest {
     
     public let responseQueue: DispatchQueue
     

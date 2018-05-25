@@ -15,7 +15,7 @@ public typealias RequestParser<T> = (Data) throws -> T
 public typealias RequestBuilder = (URLRequest) -> URLRequest
 
 /// This protocol is for Abstract the configuration of a Request
-public protocol Request {
+public protocol APIRequest {
     
     /// The type of the object that the response to will parse
     associatedtype APIResponse
@@ -30,7 +30,7 @@ public protocol Request {
     var requestFactory: RequestFactory {get}
 }
 
-public extension Request {
+public extension APIRequest {
     
     public var urlRequest: URLRequest {
         return requestFactory.request

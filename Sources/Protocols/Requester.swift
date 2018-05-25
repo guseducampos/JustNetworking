@@ -8,14 +8,14 @@
 
 
 /// Function use as callback for the async call
-public typealias RequestResponse<T> = (Result<T>) -> Void
+public typealias RequestResponse<T> = (APIResult<T>) -> Void
 
-public protocol Requester {
+public protocol APIRequester {
     
     /// Performs the network call and response through `RequestResponse` closure
     /// - Parameters:
     ///   - request: has the information for perform a Request
     ///   - response: Closure that will be called when the network process finish
-    func execute<T:Request>(_ request: T, response: @escaping RequestResponse<T.APIResponse>)
+    func execute<T:APIRequest>(_ request: T, response: @escaping RequestResponse<T.APIResponse>)
 }
 

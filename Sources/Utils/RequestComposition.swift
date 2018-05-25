@@ -21,3 +21,8 @@ public func compose(_ builder: RequestBuilder...) -> RequestBuilder {
         })
     }
 }
+
+
+public func identity(_ request: URLRequest) -> URLRequest {
+    return request
+}
