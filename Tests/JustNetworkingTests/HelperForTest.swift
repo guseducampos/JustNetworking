@@ -76,7 +76,7 @@ func securityRequest<T: Decodable>(type: T.Type,
                                    router: Router,
                                    parameters: [String:Any]? = nil,
                                    requestBuilder: @escaping RequestBuilder = requestIdentity) -> BaseRequest<T> {
-    return buildRequest(type: type, router: router, requestBuilder: compose(addSecurity("Bearer 23423"), requestBuilder ))
+    return buildRequest(type: type, router: router, parameters: parameters, requestBuilder: compose(addSecurity("Bearer 23423"), requestBuilder ))
 }
 
 

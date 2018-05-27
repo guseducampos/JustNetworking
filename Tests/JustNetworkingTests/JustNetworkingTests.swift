@@ -24,12 +24,11 @@ class JustNetworkingTests: XCTestCase {
         
         let request = securityRequest(type: User.self,
                                    router: UserRouter.user(id: "1"),
-                                   parameters: ["year":"2015"],
-                                   requestBuilder: compose(addURLParams(["year": "2015"])))
+                                   parameters: ["year":"2015"])
         
         let urlRequest = request.urlRequest
-        assert(urlRequest.allHTTPHeaderFields ==  ["Authorization": "Bearer 23423"], "headers was not added" )
-        assert(urlRequest.url?.absoluteString == "https://www.myApi.com/1?year=2015", "Parameters was not added")
+        XCTAssert(urlRequest.allHTTPHeaderFields ==  ["Authorization": "Bearer 23423"], "headers was not added" )
+        XCTAssert(urlRequest.url?.absoluteString == "https://www.myApi.com/1?year=2015", "Parameters was not added")
     }
 }
 
