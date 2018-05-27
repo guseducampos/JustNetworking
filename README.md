@@ -1,6 +1,6 @@
 # JustNetworking
 
-It is a tiny architecture library for simplify the networking layer.  The main of the library is provide a simple abstraction for networking layer, keeping easy to use and test.
+It is a tiny architecture library for simplify the networking layer.  The main goal of the library is provide a simple abstraction for networking layer, keeping easy to use and test.
 
 This library does not provide any custom implementation for URLDataTask or use another library for make api calls, you should use your own implementation or use a library such as Alamofire.
 
@@ -10,8 +10,8 @@ How to use it?
 There are three main protocols for this library.
 
 1. Router 
-2. Request 
-3. Requester
+2. APIRequest 
+3. APIRequester
 
 Router
 ------
@@ -58,7 +58,7 @@ var baseURL: URL {
 ```
 It is recommendable not use just one enum for all the possible paths that could exist, is better use just one per domain, so if you have `user` and  `packages` route you might create two enums one for user routes and other for packages routes. 
 
-Request
+APIRequest
 ------
 
 This protocol with associated type is used for abstract  the configuration of a Request. Has three key parameters
@@ -73,21 +73,20 @@ Property that holds a function that will parse from data to the associated type.
 
 3. requestFactory
 
-property the type `RequestFactory` this is a struct that is initialized with a `Router` implementation and a function that take an URLRequest and return another one. The point of this function is create compositions that allow to add whatever configuration you want for the URLRequest.
-
+property the type `RequestFactory` this is a struct that is initialized with a `Router` implementation and a function that take an URLRequest and return another one. The point of this function is create compositions that allow to add whatever configuration you want for the URLRequest. the `requestBuilder` parameter has a default parameter `identity` a function that return the same URLRequest passed as parameter.
 
 There is a default implementation for this protocol provided by the library :
 
 ```swift
-public struct BaseRequest<Response>: Request {
+    public struct BaseRequest<Response>: APIRequest {
 
-public let responseQueue: DispatchQueue
+    public let responseQueue: DispatchQueue
 
-public let requestParser: RequestParser<Response>
+    public let requestParser: RequestParser<Response>
 
-public let requestFactory: RequestFactory
+    public let requestFactory: RequestFactory
 
-public init(responseQueue: DispatchQueue = .global(qos: .default),
+    public init(responseQueue: DispatchQueue = .global(qos: .default),
             requestFactory: RequestFactory,
             requestParser: @escaping RequestParser<Response>) {
             self.responseQueue = responseQueue
@@ -116,41 +115,41 @@ Most of the time you will use this implementation for build your Request, but if
 
 ### Making composition for build an URLRequest
 
-The library provide a free function `compose` that takes a varadic parameter of type of `RequestBuilder`, that is just a typealias for the signature `(URLRequest) -> URLRequest`, this function take a N number of function that accomplish the signature and reduce gets a  `URLRequest`. This function return a `RequestBuilder`.
+The library provide a free function `compose` that takes a varadic parameter of type of `RequestBuilder`, that is just a typealias for the signature `(URLRequest) -> URLRequest`, this function take a N number of function that accomplish the signature and reduce until gets a  `URLRequest`. This function return a `RequestBuilder`.
 
 
 example:
 
 ```swift
-let requestBuilder = compose(addURLParams(["years": "2015"]), addHeaders(["Authorization":"Bearer...."]))
-RequestFactory(router: UserRouter.user(id: "12"), requestBuilder: requestBuilder)
+    let requestBuilder = compose(addURLParams(["years": "2015"]), addHeaders(["Authorization":"Bearer...."]))
+    RequestFactory(router: UserRouter.user(id: "12"), requestBuilder: requestBuilder)
 ```
 
-Requester
+APIRequester
 ------
 
-This protocol is for abstract the network client, just has a function that accepts an `Request`  and a closure as response for the callback (this closure has a type alias `Response<T>` and take a `Result` type as a parameter)
+This protocol is for abstract the network client, just has a function that accepts an `APIRequest`  and a closure as response for the callback (this closure has a type alias `Response<T>` and take a `APIResult` type as a parameter)
 
 Example using Alamofire:
 
 ```swift      
-public func execute<T: Request>(_ request: T, response: @escaping Response<T.APIResponse> )  {
+public func execute<T: Request>(_ request: T, response: @escaping Response<T.APIResponse>)  {
 
     let urlRequest = request.urlRequest
-    Alamofire.default.request(urlRequest)
+    Alamofire.request(urlRequest)
             .responseData(queue: request.responseQueue) {
                 switch $0.result {
                  case .success(let data):
                 do {
                     response(.success(try request.parser(data)))
-                    } catch {
+                } catch {
                     response(.failure(error))
-                    }
-                case .failure(let error):
-                    response(.failure(error))
-                    }
                 }
-            }
+                  case .failure(let error):
+                     response(.failure(error))
+                  }
+             }
+        }
 }
 ```
 
