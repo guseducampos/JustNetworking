@@ -25,10 +25,8 @@ public protocol Router {
     /// This holds the path and method for the url and url request
     var route: Route {get}
     
-    
     /// By default is set by the global URL configured
     var baseURL: URL {get}
-    
     
     /// By default is created with the base URL with the path appended
     var completeURL: URL {get}
@@ -37,8 +35,8 @@ public protocol Router {
 public extension Router {
     
     var baseURL: URL {
-        guard let url = GlobalConfiguration.shared.url else {
-            fatalError("You must set a valid URL for the router ")
+        guard let url = NetworkConfiguration.shared.url else {
+            fatalError("You must set a valid URL for the router \(self)")
         }
         return url
     }

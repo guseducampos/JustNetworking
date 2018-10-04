@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        GlobalConfiguration.setCurrentURL(URL(string: "https://swapi.co/api")!)
+        NetworkConfiguration.setCurrentURL(URL(string: "https://swapi.co/api")!)
 
         return true
     }

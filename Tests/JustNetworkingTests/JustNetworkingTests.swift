@@ -12,11 +12,9 @@ import XCTest
 
 class JustNetworkingTests: XCTestCase {
     
-
-    static var allTests = [
-         ("testAuthorizationRequest", testAuthorizationRequest),
-    ]
- 
+    override func setUp() {
+        NetworkConfiguration.setCurrentURL(URL(string:"https://www.myApi.com")!)
+    }
     
     func testAuthorizationRequest() {
         

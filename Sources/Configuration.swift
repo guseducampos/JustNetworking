@@ -9,14 +9,13 @@
 import Foundation
 
 /// This class save the global URL to use
-public final class GlobalConfiguration {
+public final class NetworkConfiguration {
     
     public private(set) var url: URL?
     
-    public static let shared =  GlobalConfiguration()
+    public static let shared = NetworkConfiguration()
     
     public static func setCurrentURL(_ url: URL) {
-        GlobalConfiguration.shared.url = url
+        NetworkConfiguration.shared.url = url
     }
 }
-
