@@ -54,11 +54,10 @@ func addURLParams(_ dictionary: [String:Any]) -> RequestBuilder {
 
 func buildRequest<T: Decodable>(type: T.Type,
                                 router: Router,
-                                parameters: [String:Any]? = nil,
-                                requestBuilder: @escaping RequestBuilder) -> BaseRequest<T> {
+                                compose: @escaping RequestBuilder = identity) -> BaseRequest<T> {
     
     let factory = RequestFactory(router: router,
-                                 requestBuilder: compose(addURLParams(parameters ?? [:]), requestBuilder))
+                                 requestBuilder: compose)
     
     return BaseRequest<T>(requestFactory: factory)
 }
@@ -69,14 +68,6 @@ func addSecurity(_ token: Token) -> RequestBuilder {
 
 func requestIdentity(_ request: URLRequest) -> URLRequest {
     return request
-}
-
-
-func securityRequest<T: Decodable>(type: T.Type,
-                                   router: Router,
-                                   parameters: [String:Any]? = nil,
-                                   requestBuilder: @escaping RequestBuilder = requestIdentity) -> BaseRequest<T> {
-    return buildRequest(type: type, router: router, parameters: parameters, requestBuilder: compose(addSecurity("Bearer 23423"), requestBuilder ))
 }
 
 

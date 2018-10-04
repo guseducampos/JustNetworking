@@ -16,17 +16,25 @@ class JustNetworkingTests: XCTestCase {
         NetworkConfiguration.setCurrentURL(URL(string:"https://www.myApi.com")!)
     }
     
-    func testAuthorizationRequest() {
+    func testRequest() {
         
-        GlobalConfiguration.setCurrentURL(URL(string:"https://www.myApi.com")!)
-        
-        let request = securityRequest(type: User.self,
+        let request = buildRequest(type: User.self,
                                    router: UserRouter.user(id: "1"),
-                                   parameters: ["year":"2015"])
+                                   compose: addURLParams(["year": "2015"]))
         
         let urlRequest = request.urlRequest
-        XCTAssert(urlRequest.allHTTPHeaderFields ==  ["Authorization": "Bearer 23423"], "headers was not added" )
         XCTAssert(urlRequest.url?.absoluteString == "https://www.myApi.com/1?year=2015", "Parameters was not added")
+    }
+    
+    func testSetPropertiesRequest() {
+        let request = buildRequest(type: User.self,
+                                   router: UserRouter.user(id: "1"),
+                                   compose: compose(set(to: \.cachePolicy, .reloadIgnoringCacheData), 
+                                                    set(to: \.allHTTPHeaderFields, ["Authorization": "Bearer 23423"])))
+        
+        let urlRequest = request.urlRequest
+        XCTAssert(urlRequest.cachePolicy == .reloadIgnoringCacheData)
+         XCTAssert(urlRequest.allHTTPHeaderFields ==  ["Authorization": "Bearer 23423"], "headers was not added" )
     }
 }
 

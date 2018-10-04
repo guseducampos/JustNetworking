@@ -26,3 +26,21 @@ public func compose(_ builder: RequestBuilder...) -> RequestBuilder {
 public func identity(_ request: URLRequest) -> URLRequest {
     return request
 }
+
+/// set a property of URLRequest.
+/// Property should be a var inside of URLRequest. 
+///
+///  Returns a RequestBuilder, it could be used for compose requests
+///
+///     compose(set(to: \.cachePolicy, .reloadIgnoringCacheData), set(to: \.networkServiceType, .background))
+///
+/// - parameters
+///     - keyPath: Keypath of URLRequest to modify. 
+///     - value: value to set.
+public func set<T>(to keyPath: WritableKeyPath<URLRequest, T>, _ value: T ) -> RequestBuilder {
+    return { request in
+        var request = request
+        request[keyPath: keyPath] = value
+        return request
+    }
+}
