@@ -36,3 +36,16 @@ public extension BaseRequest where Response: Decodable {
     }
     
 }
+
+public extension BaseRequest where Response == Void {
+    
+    init(responseQueue: DispatchQueue = .global(qos: .default),
+         requestFactory: RequestFactory,
+         decoder: JSONDecoder = JSONDecoder()) {
+        self.init(responseQueue: responseQueue, requestFactory: requestFactory) { _ in
+            return ()
+        }
+    }
+    
+}
+
