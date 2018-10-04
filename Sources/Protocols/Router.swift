@@ -20,7 +20,7 @@ public struct Route {
 
 /// This a protocol is used for create an abstraction between every posible chunk of routes that could exist
 /// By default use the URL set on the global configuration and append the path
-public protocol Router {
+public protocol Router: CustomStringConvertible {
     
     /// This holds the path and method for the url and url request
     var route: Route {get}
@@ -47,5 +47,9 @@ public extension Router {
     
     var method: HTTPMethod {
         return route.method
+    }
+    
+    var description: String {
+        return "path:\(route.path), method: \(route.method)"
     }
 }
