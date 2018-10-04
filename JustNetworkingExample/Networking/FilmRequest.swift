@@ -12,7 +12,7 @@ import Foundation
 enum StarWarsFilms {
     
    static func film<T: Decodable>(_ type: T.Type, for router: FilmRouter) -> BaseRequest<GenericResult<T>> {
-        let requestFactory = RequestFactory(router: router)
+    let requestFactory = RequestFactory(router: router, requestBuilder: identity)
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return BaseRequest(requestFactory: requestFactory, decoder: decoder)
