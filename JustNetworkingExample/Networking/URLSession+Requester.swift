@@ -12,7 +12,7 @@ import JustNetworking
 
 extension URLSession: APIRequester {
     
-    public func execute<T>(_ request: T, response: @escaping (APIResult<T.APIResponse>) -> Void) where T : APIRequest {
+    public func execute<T>(_ request: T, response: @escaping (Result<T.APIResponse>) -> Void) where T : APIRequest {
         self.dataTask(with: request.urlRequest, completionHandler: { data, urlResponse, error in
             
             guard let data = data else {

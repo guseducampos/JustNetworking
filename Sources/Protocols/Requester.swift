@@ -8,7 +8,7 @@
 
 
 /// Function use as callback for the async call
-public typealias RequestResponse<T> = (APIResult<T>) -> Void
+public typealias RequestResponse<T> = (Result<T>) -> Void
 
 public protocol APIRequester {
     
