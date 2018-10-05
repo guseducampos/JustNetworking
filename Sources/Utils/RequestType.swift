@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BaseRequest<Response>: APIRequest {
+public struct RequestType<Response>: Request {
     
     public let responseQueue: DispatchQueue
     
@@ -25,7 +25,7 @@ public struct BaseRequest<Response>: APIRequest {
     }
 }
 
-public extension BaseRequest where Response: Decodable {
+public extension RequestType where Response: Decodable {
     
     init(responseQueue: DispatchQueue = .global(qos: .default),
          requestFactory: RequestFactory,
@@ -37,11 +37,10 @@ public extension BaseRequest where Response: Decodable {
     
 }
 
-public extension BaseRequest where Response == Void {
+public extension RequestType where Response == Void {
     
     init(responseQueue: DispatchQueue = .global(qos: .default),
-         requestFactory: RequestFactory,
-         decoder: JSONDecoder = JSONDecoder()) {
+         requestFactory: RequestFactory) {
         self.init(responseQueue: responseQueue, requestFactory: requestFactory) { _ in
             return ()
         }

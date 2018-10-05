@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A0F19FC20AE2B6900B1883D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0F19FB20AE2B6900B1883D /* Configuration.swift */; };
 		4A17338720AF7FA90085F018 /* RequestComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A17338620AF7FA90085F018 /* RequestComposition.swift */; };
-		4A17338920AF92740085F018 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A17338820AF92740085F018 /* BaseRequest.swift */; };
+		4A17338920AF92740085F018 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A17338820AF92740085F018 /* RequestType.swift */; };
 		4A4D7B0A20B31CD500202E34 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D7B0920B31CD500202E34 /* RequestFactory.swift */; };
 		4A54773120AF340F009222E9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54773020AF340F009222E9 /* Router.swift */; };
 		4A54773320AF3913009222E9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54773220AF3913009222E9 /* Request.swift */; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		4A0F19FB20AE2B6900B1883D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4A17338620AF7FA90085F018 /* RequestComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestComposition.swift; sourceTree = "<group>"; };
-		4A17338820AF92740085F018 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		4A17338820AF92740085F018 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		4A4D7B0920B31CD500202E34 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		4A54773020AF340F009222E9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4A54773220AF3913009222E9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			children = (
 				4A54773520AF3B65009222E9 /* Result.swift */,
 				4A17338620AF7FA90085F018 /* RequestComposition.swift */,
-				4A17338820AF92740085F018 /* BaseRequest.swift */,
+				4A17338820AF92740085F018 /* RequestType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 				4A17338720AF7FA90085F018 /* RequestComposition.swift in Sources */,
 				4A0F19FC20AE2B6900B1883D /* Configuration.swift in Sources */,
 				4A54773620AF3B65009222E9 /* Result.swift in Sources */,
-				4A17338920AF92740085F018 /* BaseRequest.swift in Sources */,
+				4A17338920AF92740085F018 /* RequestType.swift in Sources */,
 				4A54773820AF514B009222E9 /* Requester.swift in Sources */,
 				4A54773320AF3913009222E9 /* Request.swift in Sources */,
 				4A54773120AF340F009222E9 /* Router.swift in Sources */,

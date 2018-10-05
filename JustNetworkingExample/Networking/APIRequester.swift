@@ -10,13 +10,13 @@ import JustNetworking
 
 class API {
     
-    private var requester: APIRequester
+    private var requester: Requester
     
-    init(requester: APIRequester) {
+    init(requester: Requester) {
         self.requester = requester
     }
     
-    func execute<T: APIRequest>(_ request: T, response: @escaping RequestResponse<T.APIResponse>) {
+    func execute<T: Request>(_ request: T, response: @escaping RequestResponse<T.Response>) {
         requester.execute(request, response: response)
     }
 }

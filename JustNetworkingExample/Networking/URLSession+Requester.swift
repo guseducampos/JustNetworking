@@ -10,9 +10,9 @@ import Foundation
 import JustNetworking
 
 
-extension URLSession: APIRequester {
+extension URLSession: Requester {
     
-    public func execute<T>(_ request: T, response: @escaping (Result<T.APIResponse>) -> Void) where T : APIRequest {
+    public func execute<T>(_ request: T, response: @escaping (Result<T.Response>) -> Void) where T : Request {
         self.dataTask(with: request.urlRequest, completionHandler: { data, urlResponse, error in
             
             guard let data = data else {
